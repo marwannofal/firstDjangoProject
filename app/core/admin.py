@@ -1,8 +1,8 @@
 """Django admin customization."""
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib import admin # type: ignore
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin # type: ignore
 from core import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _ # type: ignore
 
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
@@ -41,3 +41,5 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Recipe)
+admin.site.register(models.Tag)
+admin.site.register(models.Ingredient)
