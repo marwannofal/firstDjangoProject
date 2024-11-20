@@ -73,4 +73,3 @@ class IngredientViewSet(BaseRecipeAttrViewSet):
     """Manage ingredient in the database."""
     serializer_class = serializers.IngredientSerializer
     queryset = Ingredient.objects.all()
-
