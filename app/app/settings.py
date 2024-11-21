@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
-from .jazzmin import JAZZMIN_SETTINGS
 from pathlib import Path
+from gettext import gettext as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    'unfold',
+    "unfold.contrib.filters",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -149,4 +151,11 @@ SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True,
 }
 
-JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+LANGUAGES = (
+    ("ar", _("Arabic")),
+    ("en", _("English")),
+)
+
+UNFOLD = {
+    "SHOW_LANGUAGES": True,
+}
